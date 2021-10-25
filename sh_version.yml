@@ -1,0 +1,16 @@
+---
+- name: show version 
+  hosts: all
+  gather_facts: false
+  connection: 192.168.60.221
+
+  tasks:
+    - name: version
+      ios_command:
+        commands:
+          - show version
+          - show ip int brief
+
+      register: print_output
+
+    -  debug: var=print_output.stdout_lines
