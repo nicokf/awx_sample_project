@@ -2,7 +2,7 @@
 - name: show version 
   hosts: all
   gather_facts: false
-  connection: 192.168.60.221
+  connection: local #192.168.60.221
 
   tasks:
     - name: version
