@@ -1,0 +1,28 @@
+---
+- name: Banner_Prueba
+  hosts: 192.168.60.221
+  connection: network_cli
+  task:
+    - name: Banners
+        ios_banner:
+          banner: 
+          state: absent
+        loop:
+        - motd
+        - exec
+        - incoming
+
+    - name: login banner
+        ios_banner:
+          banner: login
+          text: 
+            ----------------------------------------
+            |
+            | Banner creado para prueba 
+            |
+            ----------------------------------------
+            |
+            | AWX
+            | 
+            ----------------------------------------
+          state: present
